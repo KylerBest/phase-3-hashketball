@@ -1,3 +1,4 @@
+require "pry"
 # Write your code below game_hash
 def game_hash
   {
@@ -127,3 +128,13 @@ def game_hash
 end
 
 # Write code here
+def findPlayer name 
+  game_hash.each_value do |team|
+    target = team[:players].find {|player| player[:player_name] == name}
+    return target if target != nil
+  end
+end
+
+def num_points_scored name
+  findPlayer(name)[:points]
+end
